@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elida Inversiones | Incubadora de Proyectos Industriales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'elida-green': '#56AB2F',
+                        'elida-lime': '#A8E063',
+                    },
+                    fontFamily: {
+                        'sans': ['"Inter"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        h1, h2, h3, .futuristic-font, .nav-links {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+        }
+        
+        .heading-text {
+            font-family: 'Quicksand', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+            border-color: rgba(168, 224, 99, 0.3);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #A8E063 0%, #56AB2F 100%);
+            box-shadow: 0 8px 20px rgba(168, 224, 99, 0.3);
+        }
+        
+        .glass-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(168, 224, 99, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(168, 224, 99, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(168, 224, 99, 0); }
+        }
+        
+        .neon-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .neon-btn:hover {
+            box-shadow: 0 0 10px #56AB2F, 0 0 20px rgba(168, 224, 99, 0.4);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #A8E063 0%, #56AB2F 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .badge {
+            background: linear-gradient(135deg, rgba(168, 224, 99, 0.2) 0%, rgba(86, 171, 47, 0.2) 100%);
+            border: 1px solid rgba(168, 224, 99, 0.5);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step:not(:last-child):after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -50px;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #A8E063 0%, #56AB2F 100%);
+        }
+        
+        @media (max-width: 768px) {
+            .process-step:not(:last-child):after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="images/elida-logo.png" alt="Elida Logo" class="h-14 w-auto">
+                        <span class="ml-3 text-xl font-bold text-gray-800 futuristic-font">Elida Inversiones</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#about" class="text-gray-700 hover:text-elida-green transition-colors font-medium futuristic-font">Quiénes Somos</a>
+                        <a href="#methodology" class="text-gray-700 hover:text-elida-green transition-colors font-medium futuristic-font">Metodología</a>
+                        <a href="#benefits" class="text-gray-700 hover:text-elida-green transition-colors font-medium futuristic-font">Beneficios</a>
+                        <a href="#contact" class="px-5 py-2.5 rounded-full gradient-bg text-white font-medium hover:shadow-xl transition-all pulse futuristic-font">Agendar Llamada</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-elida-green focus:outline-none" id="mobile-menu-button">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white/20 backdrop-filter backdrop-blur-xl shadow-lg rounded-b-lg border border-white/20" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-elida-green">Quiénes Somos</a>
+                <a href="#methodology" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-elida-green">Metodología</a>
+                <a href="#benefits" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-elida-green">Beneficios</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium gradient-bg text-white text-center pulse">Agendar Llamada</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row items-center gap-8">
+                <div class="lg:w-1/2">
+                    <div class="glass-card p-8 md:p-12 rounded-2xl">
+                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 heading-text">Transformamos ideas en <span class="text-white">proyectos industriales sostenibles</span></h1>
+                        <p class="text-xl text-white/90 mb-8">Incubamos proyectos sociales de base científica y alto impacto industrial en el sector público y la economía social.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#contact" class="px-8 py-4 bg-white text-elida-green font-bold rounded-full hover:shadow-lg transition-all text-center pulse futuristic-font neon-btn">Agendar una llamada</a>
+                            <a href="#methodology" class="px-8 py-4 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all text-center futuristic-font">Conocer metodología</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 mt-8 lg:mt-0">
+                    <div class="glass-card p-4 rounded-2xl overflow-hidden">
+                        <img src="images/hero.png" alt="Elida Inversiones" class="w-full h-auto rounded-xl object-cover shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm font-semibold tracking-wider gradient-text uppercase">Quiénes Somos</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Expertos en innovación pública y economía social</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="glass-card p-8 rounded-2xl">
+                        <p class="text-lg text-gray-700 mb-6">Elida Inversiones es una incubadora especializada en proyectos industriales de alto impacto social y ambiental. Nuestro equipo multidisciplinario combina décadas de experiencia en:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 gradient-bg rounded-full flex items-center justify-center text-white mr-3 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Innovación pública y políticas de desarrollo</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 gradient-bg rounded-full flex items-center justify-center text-white mr-3 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Economía social y solidaria</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 gradient-bg rounded-full flex items-center justify-center text-white mr-3 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Cibernética y modelado de sistemas complejos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 gradient-bg rounded-full flex items-center justify-center text-white mr-3 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Gestión de inversiones de impacto</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="badge p-6 rounded-xl flex flex-col items-center justify-center text-center">
+                        <div class="text-3xl font-bold gradient-text mb-2">10+</div>
+                        <div class="text-sm font-medium text-gray-700">Años de experiencia</div>
+                    </div>
+                    <div class="badge p-6 rounded-xl flex flex-col items-center justify-center text-center">
+                        <div class="text-3xl font-bold gradient-text mb-2">50+</div>
+                        <div class="text-sm font-medium text-gray-700">Proyectos incubados</div>
+                    </div>
+                    <div class="badge p-6 rounded-xl flex flex-col items-center justify-center text-center">
+                        <div class="text-3xl font-bold gradient-text mb-2">$25M</div>
+                        <div class="text-sm font-medium text-gray-700">Capital movilizado</div>
+                    </div>
+                    <div class="badge p-6 rounded-xl flex flex-col items-center justify-center text-center">
+                        <div class="text-3xl font-bold gradient-text mb-2">15+</div>
+                        <div class="text-sm font-medium text-gray-700">Alianzas estratégicas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm font-semibold tracking-wider gradient-text uppercase">Nuestra Metodología</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">Un proceso riguroso basado en ciencia y adaptado a Latinoamérica</h2>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 mb-16">
+                <div class="process-step glass-card p-8 rounded-2xl w-full md:w-64 text-center">
+                    <div class="h-16 w-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Diagnóstico</h3>
+                    <p class="text-gray-600">Evaluación integral del proyecto, contexto y capacidades organizacionales.</p>
+                </div>
+                
+                <div class="process-step glass-card p-8 rounded-2xl w-full md:w-64 text-center">
+                    <div class="h-16 w-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Evaluación</h3>
+                    <p class="text-gray-600">Validación científica y socioambiental mediante nuestra metodología propia.</p>
+                </div>
+                
+                <div class="process-step glass-card p-8 rounded-2xl w-full md:w-64 text-center">
+                    <div class="h-16 w-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Valuación</h3>
+                    <p class="text-gray-600">Modelado financiero y determinación de necesidades de capital por etapas.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl w-full md:w-64 text-center">
+                    <div class="h-16 w-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">4</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Acompañamiento</h3>
+                    <p class="text-gray-600">Soporte estratégico y liberación iterativa de capital según hitos alcanzados.</p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Caso de éxito: MagiaDecoLab</h3>
+                        <p class="text-gray-600 mb-4">Cooperativa dedicada al reciclaje artístico que, con nuestro acompañamiento, logró:</p>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 gradient-bg rounded-full flex items-center justify-center text-white mr-3 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Validar su modelo de negocio con base científica</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 gradient-bg rounded-full flex items-center justify-center text-white mr-3 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Acceder a $1.2M en capital por etapas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 gradient-bg rounded-full flex items-center justify-center text-white mr-3 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Escalar su impacto a 5 nuevas comunidades</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-5 w-5 gradient-bg rounded-full flex items-center justify-center text-white mr-3 mt-1">
+                                    <i class="fas fa-check text-xs"></i>
+                                </div>
+                                <span class="text-gray-700">Reducir riesgos operativos en un 60%</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="inline-flex items-center px-6 py-3 gradient-bg text-white font-medium rounded-full hover:shadow-lg transition-all">
+                            ¿Quieres resultados similares?
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="bg-gray-100 rounded-xl h-64 md:h-80 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <i class="fas fa-chart-line text-5xl gradient-text mb-4"></i>
+                            <p class="text-gray-600">Infografía o gráfico del caso de éxito</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm font-semibold tracking-wider gradient-text uppercase">Beneficios</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3">¿Por qué elegir a Elida Inversiones?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:shadow-lg transition-all">
+                    <div class="h-12 w-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Reducción de riesgos</h3>
+                    <p class="text-gray-600">Validación rigurosa que minimiza riesgos sistémicos y garantiza impacto real.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl hover:shadow-lg transition-all">
+                    <div class="h-12 w-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mb-4">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Capital previsible</h3>
+                    <p class="text-gray-600">Acceso a financiamiento por etapas, alineado con el cumplimiento de hitos.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl hover:shadow-lg transition-all">
+                    <div class="h-12 w-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Acompañamiento experto</h3>
+                    <p class="text-gray-600">Mentoría estratégica especializada en proyectos de interés público.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl hover:shadow-lg transition-all">
+                    <div class="h-12 w-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mb-4">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Escalabilidad</h3>
+                    <p class="text-gray-600">Metodología diseñada para crecimiento sostenible y replicabilidad.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl hover:shadow-lg transition-all">
+                    <div class="h-12 w-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mb-4">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Base científica</h3>
+                    <p class="text-gray-600">Enfoque cibernético y metodológico probado en contextos latinoamericanos.</p>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl hover:shadow-lg transition-all">
+                    <div class="h-12 w-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Adaptación al sector</h3>
+                    <p class="text-gray-600">Soluciones diseñadas específicamente para economía social y sector público.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 gradient-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-sm font-semibold tracking-wider text-white/80 uppercase">Contacto</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-3">¿Listo para transformar tu proyecto?</h2>
+                <p class="text-xl text-white/90 mt-4 max-w-3xl mx-auto">Agenda una llamada de diagnóstico gratuita con nuestro equipo y descubre cómo podemos potenciar tu iniciativa.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-6">Agenda una llamada</h3>
+                    <p class="text-white/90 mb-6">Selecciona un horario que te funcione en nuestro calendario:</p>
+                    <!-- Calendly embed would go here -->
+                    <div class="bg-white/20 rounded-xl p-8 text-center">
+                        <i class="fas fa-calendar-alt text-4xl text-white mb-4"></i>
+                        <p class="text-white mb-4">Integración con Calendly</p>
+                        <a href="#" class="px-6 py-3 bg-white text-elida-green font-medium rounded-full hover:shadow-lg transition-all inline-block">Seleccionar horario</a>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-6">O escríbenos</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-white/80 mb-1">Nombre completo</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-white/80 mb-1">Correo electrónico</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white">
+                        </div>
+                        
+                        <div>
+                            <label for="organization" class="block text-sm font-medium text-white/80 mb-1">Organización</label>
+                            <input type="text" id="organization" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-white/80 mb-1">Mensaje</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-white"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 gradient-bg text-white font-medium rounded-full hover:shadow-lg transition-all">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl">E</div>
+                        <span class="ml-3 text-xl font-bold">Elida Inversiones</span>
+                    </div>
+                    <p class="text-gray-400">Incubadora de proyectos industriales de base científica y socioambiental.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">Quiénes Somos</a></li>
+                        <li><a href="#methodology" class="text-gray-400 hover:text-white transition-colors">Metodología</a></li>
+                        <li><a href="#benefits" class="text-gray-400 hover:text-white transition-colors">Beneficios</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">contacto@elidainversiones.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+54 11 1234-5678</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">Buenos Aires, Argentina</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Síguenos</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="h-10 w-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Elida Inversiones. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Política de privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Términos de servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Calculate position with offset for fixed header
+                    const headerHeight = document.querySelector('nav').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
