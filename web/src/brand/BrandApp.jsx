@@ -176,7 +176,7 @@ export default function BrandApp() {
         </div>
       </Section>
 
-      <Section id="logo" n="01" title="Logo" intro="Logo oficial: un árbol que es a la vez circuito y crece hacia un perfil humano, dentro de un círculo verde. Ciencia, naturaleza y personas en una sola forma." light>
+      <Section id="logo" n="01" title="Logo" intro="Logo oficial: un árbol que es a la vez circuito y crece hacia un perfil humano, dentro de un círculo con el gradiente de la marca: oliva, esmeralda, cian y un brillo cálido. Ciencia, naturaleza y personas en una sola forma." light>
         <div className="b-logos">
           <div className="b-logo b-logo--dark">
             <Wordmark size={64} />
@@ -191,7 +191,7 @@ export default function BrandApp() {
           </div>
           <div className="b-logo b-logo--light b-logo--anatomy">
             <Mark size={180} />
-            <span className="b-anat b-anat--1 mono">círculo verde</span>
+            <span className="b-anat b-anat--1 mono">círculo fotón</span>
             <span className="b-anat b-anat--2 mono">circuito</span>
             <span className="b-anat b-anat--3 mono">hojas</span>
             <span className="b-anat b-anat--4 mono">perfil humano</span>
@@ -205,11 +205,11 @@ export default function BrandApp() {
             <strong>Tamaño mínimo:</strong> 20 px el isotipo, 96 px el logotipo completo.
           </p>
           <p>
-            <strong>Versiones:</strong> el círculo verde funciona sobre fondos oscuros, claros y aurora. El logotipo
+            <strong>Versiones:</strong> el círculo funciona sobre fondos oscuros, claros y aurora. El logotipo
             “elida” va en hueso sobre oscuro y en oliva-900 sobre claro.
           </p>
           <p>
-            <strong>No:</strong> rotar, recolorear el círculo, deformarlo, ponerle sombras o encerrarlo en otras formas.
+            <strong>No:</strong> rotar, cambiar el gradiente del círculo, deformarlo, ponerle sombras o encerrarlo en otras formas.
           </p>
         </div>
       </Section>

@@ -243,9 +243,13 @@ export default function LiquidMetal({ className = '', layout = 'right' }) {
     const start = performance.now()
     let t = 0
     const loop = (now) => {
-      raf = requestAnimationFrame(loop)
-      if (!visible) return
+      if (!reduce) raf = requestAnimationFrame(loop)
+      if (!visible && !reduce) return
       t = reduce ? 6 : (now - start) / 1000
+      if (reduce) {
+        mouse.x = mouse.tx
+        mouse.y = mouse.ty
+      }
       mouse.x += (mouse.tx - mouse.x) * 0.08
       mouse.y += (mouse.ty - mouse.y) * 0.08
       energy *= 0.94
@@ -258,13 +262,17 @@ export default function LiquidMetal({ className = '', layout = 'right' }) {
       gl.uniform1f(u.radius, radius)
       gl.uniform1f(u.energy, energy)
       gl.drawArrays(gl.TRIANGLES, 0, 6)
-      if (reduce) cancelAnimationFrame(raf)
     }
     raf = requestAnimationFrame(loop)
+    // con "reducir movimiento" se dibuja un cuadro fijo, y se redibuja al cambiar el tamaño
+    const redraw = () => reduce && requestAnimationFrame(loop)
+    const ro2 = new ResizeObserver(redraw)
+    ro2.observe(canvas)
 
     return () => {
       cancelAnimationFrame(raf)
       ro.disconnect()
+      ro2.disconnect()
       io.disconnect()
       window.removeEventListener('pointermove', onMove)
     }

@@ -11,7 +11,28 @@ import { NAV, AUDIENCES, OFFER, FIELDS } from '../content.js'
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [showCta, setShowCta] = useState(false)
   const { scrollYProgress } = useScroll()
+
+  // El CTA de la barra solo aparece cuando ningún CTA principal ([data-cta]) está en pantalla,
+  // para que nunca compitan dos botones iguales.
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll('[data-cta]'))
+    if (!els.length) {
+      setShowCta(true)
+      return
+    }
+    const visible = new Set()
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)))
+        setShowCta(visible.size === 0)
+      },
+      { rootMargin: '-72px 0px 0px 0px' }
+    )
+    els.forEach((el) => io.observe(el))
+    return () => io.disconnect()
+  }, [])
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 24 })
 
   useEffect(() => {
@@ -40,9 +61,30 @@ export function Nav() {
               </a>
             ))}
           </nav>
-          <Magnetic href="#contacto" className="btn btn--primary btn--sm nav__cta">
-            Agendar llamada
-          </Magnetic>
+          <AnimatePresence initial={false}>
+            {showCta && (
+              <motion.div
+                key="nav-cta"
+                className="nav__cta-wrap"
+                initial={{ width: 0, opacity: 0 }}
+                animate={{ width: 'auto', opacity: 1 }}
+                exit={{ width: 0, opacity: 0 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <motion.span
+                  style={{ display: 'inline-flex', paddingLeft: 4 }}
+                  initial={{ scale: 0.8, filter: 'blur(6px)' }}
+                  animate={{ scale: 1, filter: 'blur(0px)' }}
+                  exit={{ scale: 0.8, filter: 'blur(6px)' }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <Magnetic href="#contacto" className="btn btn--primary btn--sm nav__cta">
+                    Agendar llamada
+                  </Magnetic>
+                </motion.span>
+              </motion.div>
+            )}
+          </AnimatePresence>
           <button
             className="nav__burger"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
@@ -120,11 +162,12 @@ export function Hero() {
           </p>
         </Reveal>
         <Reveal mount delay={0.85} className="hero__ctas">
-          <Magnetic href="#contacto" className="btn btn--primary">
+          <Magnetic href="#contacto" className="btn btn--primary" data-cta="hero">
             Agendar una llamada <Arrow />
           </Magnetic>
           <Magnetic href="#metodo" className="btn btn--ghost">
-            Conocer el método
+            <span className="cta-long">Conocer el método</span>
+            <span className="cta-short">Ver el método</span>
           </Magnetic>
         </Reveal>
       </div>

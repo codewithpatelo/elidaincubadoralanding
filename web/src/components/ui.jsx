@@ -70,7 +70,7 @@ export function SplitHeading({ parts, as = 'h2', className, delay = 0, stagger =
 }
 
 /** Botón/enlace magnético: se acerca levemente al cursor. */
-export function Magnetic({ children, strength = 0.25, className, href, onClick, target, rel, ariaLabel }) {
+export function Magnetic({ children, strength = 0.25, className, href, onClick, target, rel, ariaLabel, ...rest }) {
   const ref = useRef(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
@@ -100,6 +100,7 @@ export function Magnetic({ children, strength = 0.25, className, href, onClick, 
       onPointerMove={onMove}
       onPointerLeave={reset}
       whileTap={{ scale: 0.97 }}
+      {...rest}
     >
       {children}
     </Comp>

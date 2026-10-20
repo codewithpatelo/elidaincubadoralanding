@@ -410,7 +410,7 @@ export function Contact() {
           </Reveal>
         </div>
         <Reveal delay={0.1}>
-          <div className="cal glass ring-photon">
+          <div className="cal glass ring-photon" data-cta="contacto">
             {loadCal ? (
               <iframe title="Agendar una llamada con Elida" src={CONTACT.calendly} loading="lazy" className="cal__frame" />
             ) : (

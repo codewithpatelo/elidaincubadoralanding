@@ -1,10 +1,10 @@
 const BASE = import.meta.env.BASE_URL
 
-/** Logo oficial de Elida: árbol-circuito con perfil humano en círculo verde. */
+/** Logo oficial de Elida: árbol-circuito con perfil humano, en círculo con el gradiente de marca. */
 export function Mark({ size = 36, className = '', title = 'Elida Incubadora' }) {
   return (
     <img
-      src={`${BASE}img/elida-logo.png`}
+      src={`${BASE}img/elida-logo.svg`}
       width={size}
       height={size}
       alt={title}

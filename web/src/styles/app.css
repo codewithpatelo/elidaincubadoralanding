@@ -86,6 +86,14 @@
   color: var(--text);
   background: rgba(230, 235, 214, 0.06);
 }
+.nav__cta-wrap {
+  overflow: hidden;
+  padding: 10px 8px;
+  margin: -10px -8px;
+  display: flex;
+  justify-content: flex-end;
+  flex: none;
+}
 .nav__burger {
   display: none;
   width: 44px;
@@ -156,7 +164,7 @@
 
 @media (max-width: 900px) {
   .nav__links,
-  .nav__cta {
+  .nav__cta-wrap {
     display: none !important;
   }
   .nav__burger {
@@ -176,7 +184,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 140px 0 40px;
+  /* todo el héroe (título, bajada y CTA) entra en la primera pantalla a cualquier alto */
+  padding: clamp(84px, 13svh, 140px) 0 clamp(20px, 4svh, 40px);
   overflow: hidden;
   isolation: isolate;
 }
@@ -214,7 +223,7 @@
 }
 .hero__content {
   display: grid;
-  gap: 28px;
+  gap: clamp(14px, 2.6svh, 28px);
   pointer-events: none;
 }
 .hero__content > * {
@@ -222,7 +231,7 @@
 }
 .hero__title {
   max-width: 13ch;
-  font-size: clamp(2.7rem, 6.1vw, 5.6rem);
+  font-size: clamp(2.3rem, min(6.1vw, 10.5svh), 5.6rem);
   text-shadow: 0 2px 40px rgba(12, 15, 9, 0.6);
 }
 .hero::before {
@@ -238,6 +247,10 @@
 }
 .hero__lead {
   max-width: 52ch;
+  font-size: clamp(0.98rem, min(1.35vw, 2.5svh), 1.3rem);
+}
+.cta-short {
+  display: none;
 }
 .hero__ctas {
   display: flex;
@@ -245,7 +258,7 @@
   gap: 12px;
 }
 .hero__meta {
-  margin-top: clamp(48px, 8vh, 96px);
+  margin-top: clamp(20px, 5svh, 96px);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
   gap: 24px;
@@ -284,24 +297,43 @@
     transform: translateY(6px);
   }
 }
+@media (max-height: 760px) and (min-width: 901px) {
+  .hero__meta {
+    display: none;
+  }
+}
 @media (max-width: 900px) {
   .hero {
-    padding-top: 120px;
+    padding-top: 84px;
+    padding-bottom: clamp(20px, 4svh, 36px);
     justify-content: flex-end;
   }
   .hero__content {
-    padding-top: 26svh;
+    padding-top: clamp(150px, 24svh, 260px);
+    gap: clamp(12px, 2svh, 20px);
+  }
+  .hero__title {
+    font-size: clamp(2.1rem, min(10.5vw, 6.2svh), 3.2rem);
+  }
+  .hero__lead {
+    font-size: 0.97rem;
+  }
+  .hero__ctas {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .hero__ctas .btn {
+    --h: 46px;
+    padding: 0 18px;
+    font-size: 0.92rem;
+  }
+  .cta-long {
+    display: none;
+  }
+  .cta-short {
+    display: inline;
   }
   .hero__meta {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .hero__meta > div {
-    grid-template-columns: 28px 1fr;
-    align-items: baseline;
-    padding: 12px 0;
-  }
-  .hero__scroll {
     display: none;
   }
 }
