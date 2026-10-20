@@ -176,42 +176,40 @@ export default function BrandApp() {
         </div>
       </Section>
 
-      <Section id="logo" n="01" title="Logo" intro="Isotipo Brote-circuito: un tallo que nace del suelo y se bifurca en una hoja (vida, comunidad) y una traza con nodo (ciencia, tecnología), dentro de un anillo-semilla que se abre." light>
+      <Section id="logo" n="01" title="Logo" intro="Logo oficial: un árbol que es a la vez circuito y crece hacia un perfil humano, dentro de un círculo verde. Ciencia, naturaleza y personas en una sola forma." light>
         <div className="b-logos">
           <div className="b-logo b-logo--dark">
             <Wordmark size={64} />
           </div>
           <div className="b-logo b-logo--light">
             <span style={{ color: 'var(--olive-900)' }}>
-              <Wordmark size={64} mono />
+              <Wordmark size={64} />
             </span>
           </div>
           <div className="b-logo b-logo--aurora">
-            <span style={{ color: '#fff' }}>
-              <Mark size={96} mono />
-            </span>
+            <Mark size={120} />
           </div>
           <div className="b-logo b-logo--light b-logo--anatomy">
-            <Mark size={160} />
-            <span className="b-anat b-anat--1 mono">anillo-semilla</span>
-            <span className="b-anat b-anat--2 mono">traza + nodo</span>
-            <span className="b-anat b-anat--3 mono">hoja</span>
-            <span className="b-anat b-anat--4 mono">tallo</span>
+            <Mark size={180} />
+            <span className="b-anat b-anat--1 mono">círculo verde</span>
+            <span className="b-anat b-anat--2 mono">circuito</span>
+            <span className="b-anat b-anat--3 mono">hojas</span>
+            <span className="b-anat b-anat--4 mono">perfil humano</span>
           </div>
         </div>
         <div className="b-rules">
           <p>
-            <strong>Área de respeto:</strong> el alto del nodo superior (≈ 1/8 del isotipo) a cada lado.
+            <strong>Área de respeto:</strong> un cuarto del diámetro del círculo a cada lado.
           </p>
           <p>
             <strong>Tamaño mínimo:</strong> 20 px el isotipo, 96 px el logotipo completo.
           </p>
           <p>
-            <strong>Versiones:</strong> color fotónico sobre fondos oscuros; monocromo oliva-900 sobre claros; blanco sobre
-            aurora o fotos.
+            <strong>Versiones:</strong> el círculo verde funciona sobre fondos oscuros, claros y aurora. El logotipo
+            “elida” va en hueso sobre oscuro y en oliva-900 sobre claro.
           </p>
           <p>
-            <strong>No:</strong> rotar, cambiar los colores del gradiente, ponerle sombras o encerrarlo en otras formas.
+            <strong>No:</strong> rotar, recolorear el círculo, deformarlo, ponerle sombras o encerrarlo en otras formas.
           </p>
         </div>
       </Section>

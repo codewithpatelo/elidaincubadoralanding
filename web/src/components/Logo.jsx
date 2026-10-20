@@ -1,75 +1,37 @@
-import { useId } from 'react'
+const BASE = import.meta.env.BASE_URL
 
-/**
- * Isotipo "Brote-circuito": un tallo que nace del suelo y se bifurca
- * en una hoja (comunidad, vida) y una traza con nodo (ciencia, tecnología),
- * dentro de un anillo que se abre como una semilla.
- */
-export function Mark({ size = 36, mono = false, className = '', title = 'Elida Incubadora' }) {
-  const id = useId().replace(/:/g, '')
-  const stroke = mono ? 'currentColor' : `url(#g-${id})`
+/** Logo oficial de Elida: árbol-circuito con perfil humano en círculo verde. */
+export function Mark({ size = 36, className = '', title = 'Elida Incubadora' }) {
   return (
-    <svg
-      className={className}
+    <img
+      src={`${BASE}img/elida-logo.png`}
       width={size}
       height={size}
-      viewBox="0 0 48 48"
-      fill="none"
-      role="img"
-      aria-label={title}
-    >
-      {!mono && (
-        <defs>
-          <linearGradient id={`g-${id}`} x1="6" y1="42" x2="44" y2="6" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#b0be84" />
-            <stop offset="0.38" stopColor="#3fcf98" />
-            <stop offset="0.72" stopColor="#4fd6dc" />
-            <stop offset="1" stopColor="#ffa95c" />
-          </linearGradient>
-        </defs>
-      )}
-      {/* anillo-semilla abierto arriba a la derecha */}
-      <path
-        d="M33.5 6.9A20 20 0 1 0 43.1 18"
-        stroke={stroke}
-        strokeWidth="2.6"
-        strokeLinecap="round"
-      />
-      {/* tallo */}
-      <path d="M22 42V22" stroke={stroke} strokeWidth="2.6" strokeLinecap="round" />
-      {/* hoja */}
-      <path
-        d="M22 31c-7.2 0-10.6-4.7-10.2-11.2 6.6-.2 10.2 4.1 10.2 11.2Z"
-        fill={stroke}
-      />
-      {/* traza de circuito */}
-      <path
-        d="M22 26l7.5-7.5h6"
-        stroke={stroke}
-        strokeWidth="2.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="38.6" cy="18.5" r="3.1" fill={stroke} />
-      <circle cx="22" cy="18.4" r="2.4" fill={stroke} />
+      alt={title}
+      className={className}
+      style={{ width: size, height: size, objectFit: 'contain', flex: 'none' }}
+      decoding="async"
+    />
+  )
+}
+
+/** Glifo decorativo (nodo con brote) para íconos y separadores. No reemplaza al logo. */
+export function Glyph({ size = 16 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="6.4" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M8 12.5V7.2M8 9.6 5.6 7.6M8 8.4l2.3-2.3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <circle cx="8" cy="6.2" r="1.1" fill="currentColor" />
     </svg>
   )
 }
 
-export function Wordmark({ size = 34, mono = false, sub = true }) {
+export function Wordmark({ size = 34, sub = true }) {
   return (
     <span className="wordmark" style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-      <Mark size={size} mono={mono} />
+      <Mark size={size} />
       <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
-        <span
-          style={{
-            fontWeight: 600,
-            fontSize: size * 0.62,
-            letterSpacing: '-0.04em',
-          }}
-        >
-          elida
-        </span>
+        <span style={{ fontWeight: 600, fontSize: size * 0.62, letterSpacing: '-0.04em' }}>elida</span>
         {sub && (
           <span
             style={{

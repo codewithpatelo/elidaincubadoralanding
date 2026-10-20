@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react'
 import { Reveal, SpotlightCard, SectionHead, SplitHeading, Magnetic, Arrow, Counter } from '../components/ui.jsx'
-import { Wordmark, Mark } from '../components/Logo.jsx'
+import { Wordmark, Mark, Glyph } from '../components/Logo.jsx'
 import { PROJECTS, MULTIPLIER, BENEFITS, CREDENTIALS, DISCIPLINES, MANIFESTO, CONTACT, NAV } from '../content.js'
 
 const EASE = [0.22, 1, 0.36, 1]
@@ -32,10 +32,8 @@ function CasaVisual() {
   const sw = ['#c8641f', '#f08a3c', '#ffc98f', '#e6ebd6', '#8fa35e', '#3f5023']
   return (
     <div className="pv pv--casa" aria-hidden="true">
-      <div className="pv__room">
-        <span className="pv__arch" />
-        <span className="pv__plant" />
-        <span className="pv__sofa" />
+      <div className="pv__badge">
+        <img src={`${BASE}img/casa-creativa.png`} alt="" loading="lazy" />
       </div>
       <div className="pv__swatches">
         {sw.map((c, i) => (
@@ -220,7 +218,7 @@ export function Multiplier() {
               <Reveal key={b.t} delay={i * 0.06}>
                 <SpotlightCard className="benefit" tilt={3}>
                   <span className="benefit__icon" aria-hidden="true">
-                    <Mark size={18} mono />
+                    <Glyph size={18} />
                   </span>
                   <h3>{b.t}</h3>
                   <p className="muted">{b.d}</p>
@@ -288,7 +286,7 @@ export function Science() {
           {[...DISCIPLINES, ...DISCIPLINES].map((d, i) => (
             <span key={i} className="marquee__item">
               {d}
-              <Mark size={16} mono />
+              <Glyph size={18} />
             </span>
           ))}
         </div>
