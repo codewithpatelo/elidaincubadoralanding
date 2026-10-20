@@ -466,7 +466,6 @@ export function Footer() {
             <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
-            <a href={`${BASE}brand/`}>Sistema de marca</a>
           </div>
         </div>
         <div className="footer__bottom mono">
