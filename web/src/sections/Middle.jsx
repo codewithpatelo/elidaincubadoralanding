@@ -159,10 +159,15 @@ export function Method() {
 /* Capital paciente: simulador + rúbrica                               */
 /* ------------------------------------------------------------------ */
 function CapitalSim() {
-  const START = [{ id: 0, amt: 1, res: 'start', cycle: 0 }]
+  // Ejemplo ilustrativo: un primer aporte para arrancar y después micro-rondas por experimento.
+  const START = [
+    { id: 0, amt: 1000, res: 'start', cycle: 0 },
+    { id: 1, amt: 200, res: 'micro', cycle: 1 },
+  ]
   const [rounds, setRounds] = useState(START)
   const last = rounds[rounds.length - 1]
-  const max = Math.max(...rounds.map((r) => r.amt), 1.25 ** 4)
+  const max = Math.max(...rounds.map((r) => r.amt))
+  const usd = (a) => `${a === 1000 || a === 200 ? '' : '≈'}${(Math.round(a / 10) * 10).toLocaleString('es-AR')}`
 
   const step = (ok) => {
     setRounds((rs) => {
@@ -171,7 +176,8 @@ function CapitalSim() {
         ? { id: l.id + 1, amt: l.amt * 1.25, res: 'ok', cycle: Math.min(l.cycle + 1, 4) }
         : { id: l.id + 1, amt: l.amt * 0.8, res: 'ko', cycle: 1 }
       const out = [...rs, next]
-      return out.length > 9 ? out.slice(out.length - 9) : out
+      // el aporte inicial queda siempre a la vista como referencia
+      return out.length > 8 ? [out[0], ...out.slice(out.length - 7)] : out
     })
   }
 
@@ -199,21 +205,27 @@ function CapitalSim() {
               animate={{ opacity: 1, scaleY: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6, ease: EASE }}
-              style={{ height: `${(r.amt / max) * 100}%` }}
+              style={{ height: `${Math.max(4, (r.amt / max) * 100)}%` }}
             >
-              <span className="sim__val mono">{r.amt.toFixed(2).replace('.', ',')}×</span>
+              <span className="sim__val mono">{usd(r.amt)}</span>
             </motion.div>
           ))}
         </AnimatePresence>
+      </div>
+      <div className="sim__legend mono">
+        <span><i className="sim__sw sim__sw--start" />Aporte inicial</span>
+        <span><i className="sim__sw sim__sw--micro" />Micro-ronda</span>
+        <span><i className="sim__sw sim__sw--ok" />Tras validar</span>
+        <span><i className="sim__sw sim__sw--ko" />Tras refutar</span>
       </div>
       <div className="sim__status">
         <span>
           Ciclo actual: <strong>{cycleName}</strong>
         </span>
         <span className="mono muted">
-          {last.res === 'ok' && 'Validó → la próxima ronda crece 1,25×'}
-          {last.res === 'ko' && 'Refutó → ronda más chica y vuelta a Cuestión profunda'}
-          {last.res === 'start' && 'Micro-ronda inicial'}
+          {last.res === 'ok' && 'Validó → la próxima micro-ronda crece, del orden de 1,25×'}
+          {last.res === 'ko' && 'Refutó → micro-ronda más chica y vuelta a Cuestión profunda'}
+          {last.res === 'micro' && 'Primera micro-ronda de experimentación'}
         </span>
       </div>
       <div className="sim__actions">
@@ -224,6 +236,7 @@ function CapitalSim() {
           El experimento refuta
         </button>
       </div>
+      <p className="sim__note muted">Montos de ejemplo en USD. Son estimativos: cada micro-ronda se dimensiona según lo que haya que validar.</p>
     </div>
   )
 }
@@ -309,7 +322,7 @@ export function Capital() {
         <SectionHead
           label="Capital paciente"
           title={['Cada peso se libera contra ', { t: 'un resultado medido', className: 'serif text-photon' }, ', no contra una promesa']}
-          lead="Micro-rondas que crecen 1,25× si el experimento valida y se achican si falla. Usamos instrumentos con expiración (acciones de voto limitado o regalías) que se cancelan al alcanzar un múltiplo pactado: el proyecto no queda atado para siempre."
+          lead="Un primer aporte pone el proyecto en marcha. Después liberamos micro-rondas por experimento: si valida, la siguiente crece en múltiplos (del orden de 1,25×); si falla, se achica. Los montos son estimativos y se ajustan a lo que haya que validar. Usamos instrumentos con expiración (acciones de voto limitado o regalías) que se cancelan al alcanzar un múltiplo pactado: el proyecto no queda atado para siempre."
         />
         <div className="capital__grid">
           <Reveal>

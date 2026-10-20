@@ -335,7 +335,7 @@ export function Now() {
               { v: <Counter to={2} />, l: 'proyectos en incubación' },
               { v: <Counter to={5} />, l: 'ciclos con compuerta de evidencia' },
               { v: <Counter to={6} />, l: 'criterios de evaluación' },
-              { v: <Counter to={1.25} decimals={2} suffix="×" />, l: 'por micro-ronda validada' },
+              { v: <Counter to={1.25} decimals={2} prefix="≈" suffix="×" />, l: 'de crecimiento orientativo por micro-ronda validada' },
             ].map((s, k) => (
               <Reveal key={k} delay={k * 0.08}>
                 <div className="stat glass">

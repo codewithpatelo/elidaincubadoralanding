@@ -67,7 +67,7 @@ export const OFFER = [
   },
   {
     t: 'Capital paciente iterativo',
-    d: 'Micro-rondas que crecen si el experimento valida y se achican si falla, con instrumentos que expiran al alcanzar un múltiplo pactado.',
+    d: 'Un primer aporte para arrancar y después micro-rondas por experimento, que crecen en múltiplos cuando el experimento valida y se achican cuando falla. Los instrumentos expiran al alcanzar un múltiplo pactado.',
   },
   {
     t: 'Comunidad recíproca',
@@ -82,11 +82,11 @@ export const FIELDS = [
   },
   {
     t: 'Innovación social',
-    d: 'Cooperativas y regenerativas, empresas sociales, sindicatos y asociaciones civiles.',
+    d: 'Cooperativas, empresas sociales, sindicatos y asociaciones civiles. También las regenerativas, una figura que estamos desarrollando en Elida: cooperativismo, democracia participativa y economía regenerativa en una sola organización.',
   },
   {
     t: 'Transferencia científica',
-    d: 'Proyectos de base científica con cadenas de valor regenerativas.',
+    d: 'Proyectos de base científica que abordan un problema social, con potencial exportador y que fortalecen el tejido industrial nacional.',
   },
 ]
 
@@ -189,7 +189,7 @@ export const PROJECTS = [
     name: 'Casa Creativa',
     kicker: 'Empresa social · Economía circular',
     title: 'Decoración accesible asistida por IA',
-    body: 'Asesorías de decoración con IA para transformar la casa con lo que ya tenés: renovar un mueble, rearmar un ambiente o construir una paleta. Continuidad de MagiaDecoLab. Con CUESDA trabajamos el paso de audiencia a ingresos estables.',
+    body: 'Asesorías de decoración con IA para transformar la casa con lo que ya tenés: renovar un mueble, rearmar un ambiente o construir una paleta. Continuidad de MagiaDecoLab. Con CUESDA estamos trabajando el paso de audiencia a ingresos estables.',
     tags: ['Empresa social', 'Suprareciclaje', 'IA aplicada'],
     status: 'En incubación',
     link: 'https://www.lacasacreativaia.com/',

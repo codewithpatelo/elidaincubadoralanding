@@ -992,9 +992,43 @@
 .sim__bar--ko {
   background: linear-gradient(180deg, var(--sun-300), var(--sun-500));
 }
+.sim__bar--start {
+  background: linear-gradient(180deg, var(--olive-600), var(--olive-800));
+}
+.sim__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.sim__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.sim__sw {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--olive-400), var(--olive-600));
+}
+.sim__sw--start {
+  background: var(--olive-700);
+}
+.sim__sw--ok {
+  background: var(--emerald-400);
+}
+.sim__sw--ko {
+  background: var(--sun-400);
+}
+.sim__note {
+  margin: 0;
+  font-size: 0.8rem;
+}
 .sim__val {
   position: absolute;
-  top: -22px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.66rem;
