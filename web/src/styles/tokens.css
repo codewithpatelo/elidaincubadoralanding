@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Elida Incubadora — Brand tokens v1.0
+   Solarpunk deeptech: verde oliva, blanco hueso y grises cálidos,
+   con acentos de cian, esmeralda y naranja solar.
+   ========================================================================== */
+
+:root {
+  /* ---- Oliva (color principal) ---- */
+  --olive-50: #f4f6ec;
+  --olive-100: #e6ebd6;
+  --olive-200: #cdd6ae;
+  --olive-300: #b0be84;
+  --olive-400: #8fa35e;
+  --olive-500: #6e8540;
+  --olive-600: #556b2f;
+  --olive-700: #3f5023;
+  --olive-800: #2a351a;
+  --olive-900: #171d10;
+  --olive-950: #0c0f09;
+
+  /* ---- Neutros (blanco hueso y grises cálidos) ---- */
+  --bone: #f5f4ee;
+  --paper: #fbfbf8;
+  --stone-100: #ecebe5;
+  --stone-200: #d9d8d0;
+  --stone-300: #bdbcb3;
+  --stone-400: #9d9d94;
+  --stone-500: #7b7c73;
+  --stone-600: #5d5e57;
+  --stone-700: #42433d;
+  --stone-800: #2a2b27;
+
+  /* ---- Acentos ---- */
+  --cyan-300: #8be8ea;
+  --cyan-400: #4fd6dc;
+  --cyan-500: #1fbcc6;
+  --cyan-600: #128f99;
+  --emerald-300: #7fe3bd;
+  --emerald-400: #3fcf98;
+  --emerald-500: #17b07a;
+  --emerald-600: #0e8a60;
+  --sun-300: #ffc98f;
+  --sun-400: #ffa95c;
+  --sun-500: #f08a3c;
+  --sun-600: #c8641f;
+
+  /* ---- Roles semánticos (tema oscuro por defecto) ---- */
+  --bg: var(--olive-950);
+  --bg-raised: #12160e;
+  --surface: rgba(230, 235, 214, 0.04);
+  --surface-strong: rgba(230, 235, 214, 0.08);
+  --line: rgba(230, 235, 214, 0.12);
+  --line-strong: rgba(230, 235, 214, 0.22);
+  --text: #eef0e6;
+  --text-muted: #a9ae9a;
+  --text-faint: #6f7464;
+  --accent: var(--emerald-400);
+  --accent-2: var(--cyan-400);
+  --warm: var(--sun-400);
+
+  /* ---- Gradientes de marca ---- */
+  /* Aurora: el gradiente insignia. Domina el verde, con un borde cálido. */
+  --grad-aurora: radial-gradient(120% 90% at 15% 20%, rgba(63, 207, 152, 0.55) 0%, transparent 55%),
+    radial-gradient(90% 80% at 85% 15%, rgba(31, 188, 198, 0.45) 0%, transparent 60%),
+    radial-gradient(80% 70% at 75% 95%, rgba(240, 138, 60, 0.45) 0%, transparent 60%),
+    linear-gradient(160deg, #3f5023 0%, #171d10 70%);
+  /* Fotosíntesis: lineal para trazos, bordes y textos destacados */
+  --grad-photon: linear-gradient(100deg, var(--olive-300) 0%, var(--emerald-400) 35%, var(--cyan-400) 70%, var(--sun-400) 100%);
+  /* Cromo oliva: superficies metálicas */
+  --grad-chrome: linear-gradient(135deg, #f4f6ec 0%, #9aa585 22%, #e9ecdf 38%, #5a6448 58%, #d6dccb 78%, #8b9473 100%);
+  /* Atardecer solar: acento cálido puntual */
+  --grad-sun: linear-gradient(120deg, var(--sun-300), var(--sun-500));
+
+  /* ---- Tipografía ---- */
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --fs-display: clamp(2.75rem, 7.2vw, 6.5rem);
+  --fs-h1: clamp(2.25rem, 5vw, 4.25rem);
+  --fs-h2: clamp(1.9rem, 3.6vw, 3.1rem);
+  --fs-h3: clamp(1.25rem, 1.8vw, 1.6rem);
+  --fs-lead: clamp(1.08rem, 1.35vw, 1.3rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.72rem;
+
+  --tracking-tight: -0.035em;
+  --tracking-label: 0.14em;
+
+  /* ---- Espacio, radios, sombras ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+  --space-9: 112px;
+  --section-y: clamp(80px, 12vw, 160px);
+  --gutter: clamp(16px, 4vw, 48px);
+  --maxw: 1240px;
+
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  --shadow-glass: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 20px 60px -20px rgba(0, 0, 0, 0.55);
+  --shadow-lift: 0 30px 80px -30px rgba(0, 0, 0, 0.6);
+  --blur-glass: blur(18px) saturate(140%);
+
+  /* ---- Movimiento ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 360ms;
+  --dur-slow: 900ms;
+}
+
+/* Secciones claras: mismo sistema, roles invertidos */
+.theme-light {
+  --bg: var(--bone);
+  --bg-raised: var(--paper);
+  --surface: rgba(23, 29, 16, 0.035);
+  --surface-strong: rgba(23, 29, 16, 0.07);
+  --line: rgba(23, 29, 16, 0.12);
+  --line-strong: rgba(23, 29, 16, 0.24);
+  --text: var(--olive-900);
+  --text-muted: var(--stone-600);
+  --text-faint: var(--stone-400);
+  --accent: var(--emerald-600);
+  --accent-2: var(--cyan-600);
+  --warm: var(--sun-600);
+  --shadow-glass: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 20px 50px -25px rgba(23, 29, 16, 0.25);
+  color: var(--text);
+  background: var(--bg);
+}
